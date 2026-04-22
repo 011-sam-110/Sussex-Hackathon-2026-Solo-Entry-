@@ -2,7 +2,9 @@
 
 > Built in **15 hours** during a 24-hour hackathon (Feb 28 – Mar 1, 2026).
 
-The Navigator is a full-stack AI agent that lets users control their computer with plain English. A user types "search for Radiohead on Spotify and queue a song" — and the system sees the screen, plans the clicks, and executes them autonomously. It was designed with seniors in mind: large UI, simple language, no technical knowledge required.
+The Navigator is a full-stack AI agent built to help older users navigate their computers independently. Modern UIs are often a barrier — harsh color schemes make buttons hard to spot, cluttered layouts are disorienting, and multi-step workflows like sending an email or finding a photo can be genuinely confusing. The Navigator solves this by acting as a sighted co-pilot: it looks at whatever is on the screen, locates elements the user can't easily find, and completes tasks on their behalf — all triggered by a plain English request.
+
+A user types "find my photos from last Christmas" or "help me reply to this email" — and the system sees the screen exactly as they do, identifies the right buttons and inputs, and executes the clicks and keystrokes autonomously.
 
 ---
 
