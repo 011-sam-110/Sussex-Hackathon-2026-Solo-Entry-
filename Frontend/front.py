@@ -1,13 +1,5 @@
-from calendar import c
-
-
-import requests
 import client
-from keyboard import send
-
-import tkinter as tk
 import webview
-import json
 import os
 import pyautogui
 import time

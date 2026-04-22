@@ -1,22 +1,26 @@
-import requests, os
+import requests
+import os
 from dotenv import load_dotenv
-from utils.buttonLocations import getScreenData
+from utils.buttonLocations import capture_screenshot_b64
 
 load_dotenv()
 NGROK_URL = os.getenv("NGROK_URL")
 
+
 def sendQuery(userPrompt, history=None):
-    screenText, buttonLocations = getScreenData()
+    screenshot_b64, width, height = capture_screenshot_b64()
     payload = {
         "user_prompt": userPrompt,
-        "screen_text": screenText,
-        "screen_btns": buttonLocations,
+        "screenshot_b64": screenshot_b64,
+        "screen_width": width,
+        "screen_height": height,
         "history": history,
     }
     print("-" * 50)
     response = requests.post(
         f"{NGROK_URL}/upload-text",
         json=payload,
+        timeout=120,
     )
     print(response)
     try:
@@ -28,5 +32,7 @@ def sendQuery(userPrompt, history=None):
     except Exception:
         return {"response": response.text, "user_prompt_used": ""}
 
+
 if __name__ == "__main__":
-    sendQuery("What is on my screen?")
+    result = sendQuery("What is on my screen?")
+    print(result["response"])
