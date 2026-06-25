@@ -50,7 +50,7 @@ I've entered the login details and submitted the form.
 
 The parser splits on `@` delimiters to extract the command block, then splits on `*` to unstack individual commands. Each command is dispatched to a `pyautogui` handler. The `loop` command triggers a full re-capture cycle, injecting updated conversation history so the model never repeats steps it already took. A safety cap of **5 loop continuations** prevents runaway agents.
 
-This design solves a real problem: vision-language models are unreliable when allowed to output anything. By forcing a structured format, the system becomes deterministic and debuggable.
+This design solves a real problem: vision-language models are unreliable when allowed to output anything. By forcing a structured format, the model's output becomes predictable to parse and easy to debug.
 
 ---
 

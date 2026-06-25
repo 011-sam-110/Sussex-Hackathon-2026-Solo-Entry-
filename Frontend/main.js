@@ -46,4 +46,18 @@ document.addEventListener("DOMContentLoaded", function () {
             askBtn.click();
         }
     });
+
+    // Read Aloud — speak the most recent message via the browser SpeechSynthesis API.
+    const readAloudBtn = document.getElementById("read-aloud-btn");
+    if (readAloudBtn) {
+        readAloudBtn.addEventListener("click", function () {
+            if (!("speechSynthesis" in window)) return;
+            const messages = document.querySelectorAll("#message-history p");
+            if (!messages.length) return;
+            const lastMessage = messages[messages.length - 1].textContent.trim();
+            if (!lastMessage) return;
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance(lastMessage));
+        });
+    }
 });
